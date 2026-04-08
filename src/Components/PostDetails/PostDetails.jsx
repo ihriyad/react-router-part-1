@@ -1,8 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 
 const PostDetails = () => {
     const post = useLoaderData();
+
+    const navigate = useNavigate();
+    
     console.log("im post details ", post);
     const {body, title} = post;
     const postDetailStyle = {
@@ -13,6 +16,7 @@ const PostDetails = () => {
            <h2>Post details</h2> 
            <h4>{title}</h4>
            <p><small>{body}</small></p>
+           <button onClick={()=>navigate(-1)}>Back</button>
         </div>
     );
 };
